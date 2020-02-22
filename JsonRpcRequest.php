@@ -166,6 +166,9 @@ class JsonRpcRequest extends Model
             }
             list($routeParsed, $params) = $routeWithParams;
 
+            // FIX
+            $routeParsed = $route;
+
             // Replacing route
             $app->requestedRoute = $route;
             if ($this->paramsPassMethod == Controller::JSON_RPC_PARAMS_PASS_BODY) {
