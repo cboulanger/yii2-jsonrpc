@@ -139,9 +139,13 @@ class Action extends \yii\base\Action
             return new ErrorResponse($e);
         }
         catch (\Throwable $e) {
-            return new InternalErrorException('Error while processing request', [], $e);
+            return new ErrorResponse(new InternalErrorException('Error while processing request', [], $e));
         }
-
+        // if we have notifications, prepend them to the batch response array
+        if (count(Controller::getNotifications())) {
+          $isBatch = true;
+          $batchResponse = array_merge(Controller::getNotifications(), $batchResponse);
+        }
         return !$isBatch ? array_shift($batchResponse) : $batchResponse;
     }
 }
