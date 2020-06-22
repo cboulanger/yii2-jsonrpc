@@ -146,6 +146,8 @@ class Action extends \yii\base\Action
           $isBatch = true;
           $batchResponse = array_merge(Controller::getNotifications(), $batchResponse);
         }
-        return !$isBatch ? array_shift($batchResponse) : $batchResponse;
+        $result = !$isBatch ? array_shift($batchResponse) : $batchResponse;
+        \Yii::debug(json_encode($result), "jsonrpc");
+        return $result;
     }
 }
