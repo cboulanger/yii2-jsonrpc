@@ -70,6 +70,13 @@ class Controller extends \yii\web\Controller
     }
 
     /**
+     * Resets the list of notifications
+     */
+    public static function resetNotifications() {
+      static::$notifications = [];
+    }
+
+    /**
      * Add a notification to be sent back to the client as part of the jsonrpc response
      * @param string $method
      * @param array|null $params

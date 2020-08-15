@@ -145,6 +145,7 @@ class Action extends \yii\base\Action
         if (count(Controller::getNotifications())) {
           $isBatch = true;
           $batchResponse = array_merge(Controller::getNotifications(), $batchResponse);
+          Controller::resetNotifications();
         }
         $result = !$isBatch ? array_shift($batchResponse) : $batchResponse;
         \Yii::debug(json_encode($result), "jsonrpc");
