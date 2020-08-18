@@ -146,7 +146,7 @@ class JsonRpcRequest extends Model
         /* @var Application $app */
         $app = \Yii::$app;
         if (!$route = $this->parseMethod($this->method)) {
-            throw new MethodNotFoundException('Method not found: ' . $route . '.', [], null);
+            throw new MethodNotFoundException('Method not found: ' . $this->method . '.', [], null);
         }
 
         try {
