@@ -21,8 +21,8 @@
     }
   ],
   "require": {
-    "php": "~7.0",
-    "yiisoft/yii2": "~2.0.15"
+    "php": "^7.0",
+    "yiisoft/yii2": "^2.0.15"
   },
   "require-dev": {
     "codeception/codeception": "~2.4",
