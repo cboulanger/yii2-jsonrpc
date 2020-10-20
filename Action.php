@@ -148,7 +148,7 @@ class Action extends \yii\base\Action
           Controller::resetNotifications();
         }
         $result = !$isBatch ? array_shift($batchResponse) : $batchResponse;
-        \Yii::error(json_encode($result), "jsonrpc");
+        \Yii::debug(json_encode($result), "jsonrpc");
         return $result;
     }
 }
